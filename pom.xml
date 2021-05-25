@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>ieureka-server</name>
-	<description>卡管理工程</description>
+	<description>服务注册中心</description>
 	<organization>
 		<name>ieureka-server</name>
 		<url>http://github.com/moshenghang/ieureka-server.git</url>
@@ -61,20 +61,7 @@
                </exclusion>
            </exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter</artifactId>
-				</exclusion>
-               <exclusion>
-                   <artifactId>org.springframework.boot</artifactId>
-                   <groupId>spring.boot.starter-logging</groupId>
-               </exclusion>
-			</exclusions>
-		</dependency>
+		<!-- Eureka注册中心依赖包 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
@@ -91,20 +78,6 @@
 		</dependency>
 		<dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-            <exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter</artifactId>
-				</exclusion>
-               <exclusion>
-                   <artifactId>org.springframework.boot</artifactId>
-                   <groupId>spring.boot.starter-logging</groupId>
-               </exclusion>
-			</exclusions>
-        </dependency>
-		<dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
 		<dependency>
@@ -114,6 +87,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<!-- 解决无法读取bootstrap.properties的spring.application.name变量问题. -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-context</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
